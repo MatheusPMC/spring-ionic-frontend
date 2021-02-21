@@ -16,19 +16,23 @@ export class CategoriasPage {
   items: CategoriaDTO[];
 
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public navParams: NavParams,
     public categoriaService: CategoriaService,
-    ) {
+  ) {
   }
 
 
   ionViewDidLoad() {
     this.categoriaService.findAll()
-    .subscribe(response => {
-      this.items = response;
-    },
-    error => {});
+      .subscribe(response => {
+        this.items = response;
+      },
+        error => { });
+  }
+
+  showProdutos() {
+    this.navCtrl.push('ProdutosPage');
   }
 
 }

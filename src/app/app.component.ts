@@ -12,11 +12,11 @@ export class MyApp {
 
   rootPage: string = 'HomePage';
 
-  pages: Array<{title: string, component: string}>;
+  pages: Array<{ title: string, component: string }>;
 
   constructor(
-    public platform: Platform, 
-    public statusBar: StatusBar, 
+    public platform: Platform,
+    public statusBar: StatusBar,
     public splashScreen: SplashScreen,
     public auth: AuthService) {
     this.initializeApp();
@@ -25,6 +25,7 @@ export class MyApp {
     this.pages = [
       { title: 'Profile', component: 'ProfilePage' },
       { title: 'Categorias', component: 'CategoriasPage' },
+      { title: 'Carrinho', component: 'CartPage' },
       { title: 'Logout', component: '' }
     ];
 
@@ -39,7 +40,7 @@ export class MyApp {
     });
   }
 
-  openPage(page : {title:string, component:string}) {
+  openPage(page: { title: string, component: string }) {
 
     switch (page.title) {
       case 'Logout':
@@ -47,7 +48,7 @@ export class MyApp {
         this.nav.setRoot('HomePage');
         break;
 
-        default:
+      default:
         this.nav.setRoot(page.component);
     }
   }
